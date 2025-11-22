@@ -23,6 +23,9 @@ import { AddDelivery } from "./pages/AddDelivery";
 import { MovementHistory } from "./pages/MovementHistory";
 import { StockAvailability } from "./pages/StockAvailability";
 import { Profile } from "./pages/Profile";
+import { InternalTransfers } from './pages/InternalTransfers';
+import { CreateInternalTransfer } from './pages/CreateInternalTransfer';
+import { InternalTransferDetail } from './pages/InternalTransferDetail';
 
 export default function App() {
   const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
@@ -40,7 +43,21 @@ export default function App() {
               </PublicRoute>
             }
           />
-
+          <Route path="/internal-transfers" element={
+            <ProtectedRoute>
+              <Layout><InternalTransfers /></Layout>
+            </ProtectedRoute>
+          } />
+          <Route path="/internal-transfers/create" element={
+            <ProtectedRoute>
+              <Layout><CreateInternalTransfer /></Layout>
+            </ProtectedRoute>
+          } />
+          <Route path="/internal-transfers/:id" element={
+            <ProtectedRoute>
+              <Layout><InternalTransferDetail /></Layout>
+            </ProtectedRoute>
+          } />
           <Route
             path="/signup"
             element={

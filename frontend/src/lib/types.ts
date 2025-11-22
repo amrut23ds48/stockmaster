@@ -80,3 +80,23 @@ export interface StockAvailability {
   location: string;
   quantity: number;
 }
+
+export interface InternalTransfer {
+  id: string;
+  transferNumber: string;
+  warehouseId: string;
+  warehouseName: string;
+  productId: string;
+  productName: string;
+  fromLocationId: string;
+  fromLocationName: string;
+  toLocationId: string;
+  toLocationName: string;
+  quantity: number;
+  unit: string;
+  requestedDate: string;
+  completedDate?: string;
+  requestedBy: string;
+  status: 'Pending' | 'In Progress' | 'Completed' | 'Cancelled';
+  notes?: string;
+}

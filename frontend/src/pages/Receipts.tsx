@@ -32,7 +32,7 @@ export function Receipts() {
   };
 
   // ------------------ VALIDATE ------------------
-  const handleValidate = (id: string) => {
+  const handleValidate = () => {
     if (!canValidateReceipt) {
       toast.error("You don't have permission to validate receipts.");
       return;
@@ -143,7 +143,7 @@ export function Receipts() {
                         {canValidateReceipt && (
                           <CheckCircle
                             className="w-4 h-4 text-green-600 cursor-pointer"
-                            onClick={() => handleValidate(receipt.id)}
+                            onClick={() => handleValidate()}
                           />
                         )}
 
