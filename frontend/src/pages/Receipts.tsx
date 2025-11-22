@@ -4,46 +4,59 @@ import { Button } from '../components/ui/button';
 import { mockReceipts } from '../lib/mock-data';
 import { Badge } from '../components/ui/badge';
 import { useAuth, Permission } from '../contexts/AuthContext';
-import { Trash2, Edit, CheckCircle } from 'lucide-react';
+import { Trash2, Edit, CheckCircle, RefreshCw } from 'lucide-react';
 import { toast } from 'sonner';
+import type { Receipt } from '../lib/types';
+
 
 export function Receipts() {
   const navigate = useNavigate();
   const { hasPermission } = useAuth();
-  const [receipts] = useState(mockReceipts);
+  const [receipts, setReceipts] = useState<Receipt[]>(mockReceipts);
 
   const canCreateReceipt = hasPermission(Permission.CREATE_RECEIPT);
   const canUpdateReceipt = hasPermission(Permission.UPDATE_RECEIPT);
   const canDeleteReceipt = hasPermission(Permission.DELETE_RECEIPT);
   const canValidateReceipt = hasPermission(Permission.VALIDATE_RECEIPT);
 
+  // ------------------ FIXED TOGGLE WITHOUT ERRORS ------------------
+  const toggleStatus = (id: string) => {
+    setReceipts(prev =>
+      prev.map(r =>
+        r.id === id
+          ? { ...r, status: r.status === "ready" ? "not_ready" : "ready" }
+          : r
+      )
+    );
+    toast.success("Status updated!");
+  };
+
+  // ------------------ VALIDATE ------------------
   const handleValidate = (id: string) => {
     if (!canValidateReceipt) {
-      toast.error('You don\'t have permission to validate receipts.');
+      toast.error("You don't have permission to validate receipts.");
       return;
     }
-    toast.success('Receipt validated successfully!');
+    toast.success("Receipt validated successfully!");
   };
 
+  // ------------------ DELETE ------------------
   const handleDelete = (id: string) => {
     if (!canDeleteReceipt) {
-      toast.error('You don\'t have permission to delete receipts.');
+      toast.error("You don't have permission to delete receipts.");
       return;
     }
-    toast.success('Receipt deleted successfully!');
+    setReceipts(prev => prev.filter(r => r.id !== id));
+    toast.success("Receipt deleted successfully!");
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Completed':
-        return 'bg-[#2ECC71] text-white hover:bg-[#2ECC71]';
-      case 'Pending Validation':
-        return 'bg-[#E6A700] text-white hover:bg-[#E6A700]';
-      case 'Draft':
-        return 'bg-[#6E7A83] text-white hover:bg-[#6E7A83]';
-      default:
-        return 'bg-[#6E7A83] text-white';
-    }
+  // ------------------ STATUS BADGES ------------------
+  const getStatusBadge = (status: "ready" | "not_ready") => {
+    return status === "ready" ? (
+      <Badge className="bg-[#2ECC71] text-white">Completed</Badge>
+    ) : (
+      <Badge className="bg-[#6E7A83] text-white">Draft</Badge>
+    );
   };
 
   return (
@@ -53,14 +66,15 @@ export function Receipts() {
         <div>
           <h1>Receipts</h1>
           <p className="text-[#6E7A83] mt-1">
-            {canCreateReceipt 
-              ? 'Create and manage incoming stock receipts' 
-              : 'View incoming stock receipts'}
+            {canCreateReceipt
+              ? "Create and manage incoming stock receipts"
+              : "View incoming stock receipts"}
           </p>
         </div>
+
         {canCreateReceipt && (
-          <Button 
-            onClick={() => navigate('/receipts/add')}
+          <Button
+            onClick={() => navigate("/receipts/add")}
             className="bg-[#1A4971] hover:bg-[#224F7F] text-white rounded-lg"
           >
             Add Receipt
@@ -75,47 +89,69 @@ export function Receipts() {
             <table className="w-full">
               <thead className="bg-[#F7F9FC] border-b border-[#D9DFE6]">
                 <tr>
-                  <th className="text-left px-6 py-4 text-[#1A4971]">Receipt #</th>
-                  <th className="text-left px-6 py-4 text-[#1A4971]">Supplier</th>
-                  <th className="text-left px-6 py-4 text-[#1A4971]">Warehouse</th>
-                  <th className="text-left px-6 py-4 text-[#1A4971]">Created Date</th>
-                  <th className="text-left px-6 py-4 text-[#1A4971]">Total Quantity</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">Reference</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">From</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">To</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">Contact</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">Schedule</th>
+                  <th className="text-left px-6 py-4 text-[#1A4971]">Created</th>
                   <th className="text-left px-6 py-4 text-[#1A4971]">Status</th>
+
                   {(canUpdateReceipt || canDeleteReceipt || canValidateReceipt) && (
                     <th className="text-left px-6 py-4 text-[#1A4971]">Actions</th>
                   )}
                 </tr>
               </thead>
+
               <tbody>
                 {receipts.map((receipt, index) => (
-                  <tr 
+                  <tr
                     key={receipt.id}
                     onClick={() => navigate(`/receipts/${receipt.id}`)}
                     className={`border-b border-[#D9DFE6] hover:bg-[#F7F9FC] transition-colors cursor-pointer ${
-                      index === receipts.length - 1 ? 'border-b-0' : ''
+                      index === receipts.length - 1 ? "border-b-0" : ""
                     }`}
                   >
-                    <td className="px-6 py-4 text-[#1A4971]">{receipt.receiptNumber}</td>
-                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.supplier}</td>
-                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.warehouseName}</td>
-                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.createdDate}</td>
-                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.totalQuantity}</td>
-                    <td className="px-6 py-4">
-                      <Badge className={getStatusColor(receipt.status)}>
-                        {receipt.status}
-                      </Badge>
-                    </td>
+                    <td className="px-6 py-4 text-[#1A4971]">{receipt.reference}</td>
+                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.from_location}</td>
+                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.to_location}</td>
+                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.contact}</td>
+                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.schedule_date}</td>
+                    <td className="px-6 py-4 text-[#6E7A83]">{receipt.created_at}</td>
+
+                    <td className="px-6 py-4">{getStatusBadge(receipt.status)}</td>
+
                     {(canUpdateReceipt || canDeleteReceipt || canValidateReceipt) && (
-                      <td className="px-6 py-4">
+                      <td
+                        className="px-6 py-4 flex items-center gap-3"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {/* UPDATE */}
                         {canUpdateReceipt && (
-                          <Edit className="w-4 h-4 text-[#1A4971] cursor-pointer mr-2" />
+                          <Edit className="w-4 h-4 text-[#1A4971] cursor-pointer" />
                         )}
+
+                        {/* DELETE */}
                         {canDeleteReceipt && (
-                          <Trash2 className="w-4 h-4 text-[#1A4971] cursor-pointer mr-2" />
+                          <Trash2
+                            className="w-4 h-4 text-red-500 cursor-pointer"
+                            onClick={() => handleDelete(receipt.id)}
+                          />
                         )}
+
+                        {/* VALIDATE */}
                         {canValidateReceipt && (
-                          <CheckCircle className="w-4 h-4 text-[#1A4971] cursor-pointer" onClick={() => handleValidate(receipt.id)} />
+                          <CheckCircle
+                            className="w-4 h-4 text-green-600 cursor-pointer"
+                            onClick={() => handleValidate(receipt.id)}
+                          />
                         )}
+
+                        {/* TOGGLE */}
+                        <RefreshCw
+                          className="w-4 h-4 text-[#1A4971] cursor-pointer"
+                          onClick={() => toggleStatus(receipt.id)}
+                        />
                       </td>
                     )}
                   </tr>
@@ -125,7 +161,9 @@ export function Receipts() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-[#6E7A83]">No receipts added yet — click "Add Receipt" to begin.</p>
+            <p className="text-[#6E7A83]">
+              No receipts added yet — click "Add Receipt" to begin.
+            </p>
           </div>
         )}
       </div>

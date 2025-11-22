@@ -23,15 +23,15 @@ export interface Location {
 
 export interface Receipt {
   id: string;
-  receiptNumber: string;
-  supplier: string;
-  warehouseId: string;
-  warehouseName: string;
-  createdDate: string;
-  totalQuantity: number;
-  status: 'Draft' | 'Pending Validation' | 'Completed';
-  items: ReceiptItem[];
+  reference: string;
+  from_location: string;
+  to_location: string;
+  contact: string;
+  schedule_date: string;
+  created_at: string;
+  status: "ready" | "not_ready"; // FIXED
 }
+
 
 export interface ReceiptItem {
   id: string;
