@@ -12,7 +12,7 @@ import { useAuth, Permission } from '../contexts/AuthContext';
 export function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const { hasPermission } = useAuth();
+  const { hasPermission, logout } = useAuth();
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -34,6 +34,7 @@ export function Navbar() {
   return (
     <nav className="h-16 bg-white border-b-2 border-[#1A4971] flex items-center px-6">
       <div className="flex items-center justify-between w-full max-w-[1920px] mx-auto">
+        
         {/* Logo */}
         <div className="flex items-center gap-3 mr-12">
           <div className="w-10 h-10 bg-[#1A4971] rounded-lg flex items-center justify-center">
@@ -44,6 +45,7 @@ export function Navbar() {
 
         {/* Navigation Menu */}
         <div className="flex items-center gap-1">
+
           {/* Dashboard */}
           <button
             onClick={() => navigate('/')}
@@ -56,7 +58,7 @@ export function Navbar() {
             Dashboard
           </button>
 
-          {/* Operations Dropdown - Only show if user has access to at least one operation */}
+          {/* Operations Dropdown */}
           {(canViewReceipt || canViewDelivery || canViewMovement) && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -71,6 +73,7 @@ export function Navbar() {
                   <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
                 </button>
               </DropdownMenuTrigger>
+
               <DropdownMenuContent align="start" className="w-48">
                 {canViewReceipt && (
                   <DropdownMenuItem 
@@ -83,6 +86,7 @@ export function Navbar() {
                     </div>
                   </DropdownMenuItem>
                 )}
+
                 {canViewDelivery && (
                   <DropdownMenuItem 
                     onClick={() => navigate('/deliveries')}
@@ -98,7 +102,7 @@ export function Navbar() {
             </DropdownMenu>
           )}
 
-          {/* Stock Dropdown - Only show if user has access */}
+          {/* Stock Dropdown */}
           {(canViewProducts || canViewStock) && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -113,6 +117,7 @@ export function Navbar() {
                   <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
                 </button>
               </DropdownMenuTrigger>
+
               <DropdownMenuContent align="start" className="w-56">
                 {canViewProducts && (
                   <DropdownMenuItem 
@@ -121,10 +126,11 @@ export function Navbar() {
                   >
                     <div className="flex flex-col">
                       <span className="text-[#1A4971]">Products</span>
-                      <span className="text-xs text-[#6E7A83]">List the available stock</span>
+                      <span className="text-xs text-[#6E7A83]">List available stock</span>
                     </div>
                   </DropdownMenuItem>
                 )}
+
                 {canViewStock && (
                   <DropdownMenuItem 
                     onClick={() => navigate('/stock')}
@@ -132,7 +138,7 @@ export function Navbar() {
                   >
                     <div className="flex flex-col">
                       <span className="text-[#1A4971]">Stock Availability</span>
-                      <span className="text-xs text-[#6E7A83]">Check real-time stock levels</span>
+                      <span className="text-xs text-[#6E7A83]">Check real-time stock</span>
                     </div>
                   </DropdownMenuItem>
                 )}
@@ -140,7 +146,7 @@ export function Navbar() {
             </DropdownMenu>
           )}
 
-          {/* Move History - Only show if user has access */}
+          {/* Move History */}
           {canViewMovement && (
             <button
               onClick={() => navigate('/movement-history')}
@@ -154,7 +160,7 @@ export function Navbar() {
             </button>
           )}
 
-          {/* Settings Dropdown - Only show if user has access to at least one setting */}
+            {/* Settings Dropdown */}
           {(canViewWarehouses || canViewLocations) && (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -169,6 +175,7 @@ export function Navbar() {
                   <ChevronDown className="w-4 h-4" strokeWidth={1.5} />
                 </button>
               </DropdownMenuTrigger>
+
               <DropdownMenuContent align="start" className="w-52">
                 {canViewWarehouses && (
                   <DropdownMenuItem 
@@ -177,10 +184,11 @@ export function Navbar() {
                   >
                     <div className="flex flex-col">
                       <span className="text-[#1A4971]">Warehouse</span>
-                      <span className="text-xs text-[#6E7A83]">Manage warehouse facilities</span>
+                      <span className="text-xs text-[#6E7A83]">Manage warehouses</span>
                     </div>
                   </DropdownMenuItem>
                 )}
+
                 {canViewLocations && (
                   <DropdownMenuItem 
                     onClick={() => navigate('/locations')}
@@ -188,17 +196,18 @@ export function Navbar() {
                   >
                     <div className="flex flex-col">
                       <span className="text-[#1A4971]">Locations</span>
-                      <span className="text-xs text-[#6E7A83]">Manage storage locations</span>
+                      <span className="text-xs text-[#6E7A83]">Manage locations</span>
                     </div>
                   </DropdownMenuItem>
                 )}
+
                 <DropdownMenuItem 
                   onClick={() => navigate('/profile')}
                   className="cursor-pointer"
                 >
                   <div className="flex flex-col">
                     <span className="text-[#1A4971]">Profile</span>
-                    <span className="text-xs text-[#6E7A83]">User profile & preferences</span>
+                    <span className="text-xs text-[#6E7A83]">User preferences</span>
                   </div>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -206,8 +215,10 @@ export function Navbar() {
           )}
         </div>
 
-        {/* Right Side - Page Title */}
-        <div className="ml-auto">
+        {/* Right Side - Page Title + Profile */}
+        <div className="flex items-center gap-6 ml-6">
+
+          {/* Dynamic Page Title */}
           <span className="text-[#1A4971] px-4 py-2 border-l-2 border-[#D9DFE6]">
             {location.pathname === '/' && 'Dashboard'}
             {location.pathname === '/products' && 'Products'}
@@ -223,7 +234,38 @@ export function Navbar() {
             {location.pathname === '/stock' && 'Stock Availability'}
             {location.pathname === '/profile' && 'Profile'}
           </span>
+
+          {/* PROFILE DROPDOWN */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button className="flex items-center gap-2 cursor-pointer focus:outline-none">
+                <img
+                  src="https://ui-avatars.com/api/?name=User&background=1A4971&color=fff"
+                  alt="profile"
+                  className="w-10 h-10 rounded-full border border-[#1A4971]"
+                />
+                <ChevronDown className="w-4 h-4 text-[#1A4971]" />
+              </button>
+            </DropdownMenuTrigger>
+
+            <DropdownMenuContent align="end" className="w-40">
+              <DropdownMenuItem onClick={() => navigate('/profile')} className="cursor-pointer">
+                Profile
+              </DropdownMenuItem>
+
+              <DropdownMenuItem
+                onClick={() => {
+                  logout();           // Call your AuthContext logout
+                  navigate('/login'); // Redirect
+                }}
+                className="cursor-pointer text-red-600"
+              >
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
+
       </div>
     </nav>
   );
