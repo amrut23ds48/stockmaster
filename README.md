@@ -1,22 +1,25 @@
-# 🏭 StockMaster — Smart Inventory Management System
+# StockMaster
 
-> **StockMaster** is a modular Inventory Management System (IMS) built with **React (Vite + TypeScript)** frontend, **Supabase** for authentication, a **Python (FastAPI)** backend REST API, and **MySQL** for persistent/offline storage. Designed for warehouses, logistics teams and inventory managers.
+## Team Details
+- Team Name: [The Logic Legends]
+- Members:
+  - [Sana Zakir Shaikh]
+  - [Amrut Bhagwan Patankar]
+  - [Irfan Labbai]
+  - [Talha Siddique]
 
----
+## Problem Statement
+[ Build a modular Inventory Management System (IMS) that digitizes and 
+streamlines all stock-related operations within a business. The goal is to replace 
+manual registers, Excel sheets, and scattered tracking methods with a centralized, 
+real-time, easy-to-use app.]
 
-## 🔖 Quick Links
+## Reviewer Name
+[Aman Patel]
 
-* Project design / requirement document (uploaded): `/mnt/data/StockMaster (1).pdf`
-* Demo video: *(paste your demo link here)*
+## Functional Video Link
+[Paste the link to your functional demo video here]
 
----
-
-## 👥 Team — *The Logic Legends*
-
-* **Amrut Bhagwan Patankar** — Backend Engineer
-* **Sana Zakir Shaikh** — AI specialist
-* **Irfan Labbai** — Frontend Architect
-* **Talha Siddique** — Backend Specialist
 ---
 
 ## 🧩 Features
