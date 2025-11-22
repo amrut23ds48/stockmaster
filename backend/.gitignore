@@ -1,0 +1,42 @@
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+
+# ---- Virtual Environment ----
+venv/
+env/
+ENV/
+
+# ---- Environment Variables ----
+.env
+*.env
+.env.*
+
+# ---- IDE / Editor ----
+.vscode/
+.idea/
+*.swp
+
+# ---- OS Files ----
+.DS_Store
+Thumbs.db
+
+# ---- Byte-compiled / optimized ----
+*.log
+
+# ---- Alembic ----
+alembic/__pycache__/
+alembic/versions/__pycache__/
+
+# ---- Uvicorn ----
+*.pid
+
+# ---- Build Artifacts ----
+dist/
+build/
+*.egg-info/
+
