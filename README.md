@@ -13,11 +13,10 @@
 
 ## 👥 Team — *The Logic Legends*
 
-* **Sana Zakir Shaikh** — Frontend Engineer & UI/UX
 * **Amrut Bhagwan Patankar** — Backend Engineer
-* **Irfan Labbai** — Database Architect
-* **Talha Siddique** — Full-Stack Engineer
-
+* **Sana Zakir Shaikh** — AI specialist
+* **Irfan Labbai** — Frontend Architect
+* **Talha Siddique** — Backend Specialist
 ---
 
 ## 🧩 Features
