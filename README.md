@@ -18,7 +18,7 @@ real-time, easy-to-use app.]
 [Aman Patel]
 
 ## Functional Video Link
-[Paste the link to your functional demo video here]
+https://youtu.be/nYZgAdSssrQ?si=q_Dd7WMdVP3NpRNZ
 
 ---
 
