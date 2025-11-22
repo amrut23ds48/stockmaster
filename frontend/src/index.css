@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors - Industrial & Professional */
+  --color-primary: #1a4971;
+  --color-primary-hover: #224f7f;
+  --color-steel-gray: #6e7a83;
+  --color-light-gray: #d9dfe6;
+  --color-soft-bg: #f7f9fc;
+  --color-accent-orange: #f9a03f;
+  --color-success: #2ecc71;
+  --color-error: #d64545;
+  --color-warning: #e6a700;
+
+  /* Font Families */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+@layer base {
+
+  body {
+    @apply bg-soft-bg text-steel-gray;
+    font-family: var(--font-sans);
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1a4971;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a4971;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a4971;
+  }
+
+  p, div, span {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Table and numerical data */
+  table {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .table-numeric {
+    font-family: var(--font-mono);
+  }
+}
